@@ -11,7 +11,7 @@ export default function Login(): ReactElement {
   const { push } = useRouter();
 
   const handleLogin = async (): Promise<boolean> => {
-    return await push('/');
+    return await push('/login');
   };
 
   return (
