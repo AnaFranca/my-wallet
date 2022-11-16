@@ -1,3 +1,4 @@
+/* COMMIT DE DEPLOY */
 import { Grid } from '@mui/material';
 import { ReactElement } from 'react';
 import { InfoCard } from '../modules/InfoCard';

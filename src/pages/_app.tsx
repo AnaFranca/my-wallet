@@ -1,3 +1,4 @@
+/* COMMIT DE DEPLOY */
 import type { AppProps } from 'next/app';
 import { ReactElement } from 'react';
 

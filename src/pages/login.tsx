@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-misused-promises */
+/* COMMIT DE DEPLOY */
 import { ReactElement } from 'react';
 import { Button, Container, Stack, TextField, Typography } from '@mui/material';
 import Image from 'next/image';
