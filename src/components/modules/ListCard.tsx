@@ -5,6 +5,7 @@ import {
   Typography,
   Box,
   Stack,
+  Button,
 } from '@mui/material';
 import { ReactElement } from 'react';
 
@@ -17,13 +18,21 @@ export interface ListCardContentProps {
 interface ListCardProps {
   title: string;
   content: ListCardContentProps[];
+  onClick?: () => void;
 }
 
-export function ListCard({ title, content = [] }: ListCardProps): ReactElement {
+export function ListCard({
+  title,
+  content = [],
+  onClick,
+}: ListCardProps): ReactElement {
   return (
     <Card>
       <CardContent>
-        <Typography variant="h5">{title}</Typography>
+        <Stack direction="row" justifyContent="space-between">
+          <Typography variant="h5">{title}</Typography>
+          {onClick != null && <Button onClick={onClick}>Adicionar</Button>}
+        </Stack>
         {content.map((item, index) => (
           <Box key={index} mt={2}>
             <Stack

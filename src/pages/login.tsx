@@ -1,4 +1,4 @@
-/* COMMIT DE DEPLOY */
+/* eslint-disable @typescript-eslint/no-misused-promises */
 import { ReactElement } from 'react';
 import { Button, Container, Stack, TextField, Typography } from '@mui/material';
 import Image from 'next/image';
@@ -11,7 +11,7 @@ export default function Login(): ReactElement {
   const { push } = useRouter();
 
   const handleLogin = async (): Promise<boolean> => {
-    return await push('/login');
+    return await push('/');
   };
 
   return (

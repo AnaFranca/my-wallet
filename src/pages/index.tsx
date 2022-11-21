@@ -1,14 +1,13 @@
 import { ReactElement, useEffect, useState } from 'react';
 import { Box, Stack, Tab, Tabs, Typography } from '@mui/material';
-import { CreditCard } from '@mui/icons-material';
-import HomeIcon from '@mui/icons-material/Home';
+import { CreditCard, Lock, Notifications } from '@mui/icons-material';
 import Head from 'next/head';
-import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 import { Header } from '../components/Header';
 
 import { HomeContainer } from '../components/containers/Home';
 import { WalletContainer } from '../components/containers/Wallet';
 import { ExchangeContainer } from '../components/containers/Exchange';
+import { useStore, useSelector } from 'react-redux';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -56,6 +55,7 @@ export default function Home(): ReactElement {
     setValue(newValue);
   };
 
+  // ** Prevent hydration error for react 18
   useEffect(() => {
     setValue(0);
   }, []);
@@ -77,13 +77,9 @@ export default function Home(): ReactElement {
             onChange={handleChange}
             aria-label="basic tabs example"
           >
-            <Tab label="Home" icon={<HomeIcon />} {...a11yProps(0)} />
-            <Tab
-              label="Wallets"
-              icon={<AccountBalanceWalletIcon />}
-              {...a11yProps(1)}
-            />
-            <Tab label="Cambio" icon={<CreditCard />} {...a11yProps(2)} />
+            <Tab label="Home" icon={<CreditCard />} {...a11yProps(0)} />
+            <Tab label="Wallets" icon={<Lock />} {...a11yProps(1)} />
+            <Tab label="Cambio" icon={<Notifications />} {...a11yProps(2)} />
           </Tabs>
         </Box>
         <TabPanel value={value} index={0}>

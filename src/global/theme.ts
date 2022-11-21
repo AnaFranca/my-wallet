@@ -1,5 +1,3 @@
-/* COMMIT DE DEPLOY */
-
 import { createTheme, css } from '@mui/material';
 // import { Global, css, jsx } from '@emotion/core';
 import emotionReset from 'emotion-reset';

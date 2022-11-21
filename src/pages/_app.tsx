@@ -1,4 +1,3 @@
-/* COMMIT DE DEPLOY */
 import type { AppProps } from 'next/app';
 import { ReactElement } from 'react';
 
@@ -10,12 +9,17 @@ import { ThemeProvider } from '@emotion/react';
 import { theme, globalStyle } from '../global/theme';
 import { GlobalStyles, StyledEngineProvider } from '@mui/material';
 
+import { Provider } from 'react-redux';
+import store from '../store';
+
 export default function App({ Component, pageProps }: AppProps): ReactElement {
   return (
     <StyledEngineProvider injectFirst>
       <ThemeProvider theme={theme}>
-        <Component {...pageProps} />
-        <GlobalStyles styles={globalStyle} />
+        <Provider store={store}>
+          <Component {...pageProps} />
+          <GlobalStyles styles={globalStyle} />
+        </Provider>
       </ThemeProvider>
     </StyledEngineProvider>
   );

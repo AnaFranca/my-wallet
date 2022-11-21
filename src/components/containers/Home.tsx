@@ -1,10 +1,18 @@
-/* COMMIT DE DEPLOY */
 import { Grid } from '@mui/material';
-import { ReactElement } from 'react';
+import { ReactElement, useCallback } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { IState } from '../../store';
+import { addTransaction } from '../../store/modules/transactions/actions';
+import { ITransactionState } from '../../store/modules/transactions/reducer';
 import { InfoCard } from '../modules/InfoCard';
 import { ListCard, ListCardContentProps } from '../modules/ListCard';
 
 export function HomeContainer(): ReactElement {
+  const dispatch = useDispatch();
+  const transactions = useSelector<IState, ITransactionState[]>(
+    state => state.transactions,
+  );
+
   const handleCurrency = (value: number): string => {
     return value.toLocaleString('pt-br', {
       style: 'currency',
@@ -31,28 +39,12 @@ export function HomeContainer(): ReactElement {
     },
   ];
 
-  const listTransactions: ListCardContentProps[] = [
-    {
-      title: 'Investimento carteira Quarto',
-      description: '02/09/2022',
-      value: 'R$ 500,00 ',
+  const handleAddTransaction = useCallback(
+    (transaction: ITransactionState) => {
+      dispatch(addTransaction(transaction));
     },
-    {
-      title: 'Investimento carteira Quarto',
-      description: '02/09/2022',
-      value: 'R$ 500,00 ',
-    },
-    {
-      title: 'Investimento carteira Quarto',
-      description: '02/09/2022',
-      value: 'R$ 500,00 ',
-    },
-    {
-      title: 'Investimento carteira Quarto',
-      description: '02/09/2022',
-      value: 'R$ 500,00 ',
-    },
-  ];
+    [dispatch],
+  );
 
   return (
     <Grid container width="100%" columns={2} spacing={2}>
@@ -77,7 +69,17 @@ export function HomeContainer(): ReactElement {
           buttonTitle="Depositar"
           onClick={() => console.log('Clicked')}
         />
-        <ListCard title="Movimentações" content={listTransactions} />
+        <ListCard
+          title="Movimentações"
+          content={transactions}
+          onClick={() =>
+            handleAddTransaction({
+              title: 'Hello from redux',
+              description: 'Description from redux',
+              value: 'R$ 23,12',
+            })
+          }
+        />
       </Grid>
     </Grid>
   );
