@@ -1,15 +1,24 @@
+/* eslint-disable @typescript-eslint/consistent-type-assertions */
 import { Reducer } from 'redux';
 
-export interface ITransactionState {
+export interface ITransactionProps {
   title: string;
   description?: string;
-  value: string;
+  value: number;
 }
 
-const INITIAL_STATE: ITransactionState[] = [];
+export interface ITransactionStateProps {
+  transactions: ITransactionProps[];
+  total: number;
+}
+
+const INITIAL_STATE: ITransactionStateProps = {
+  transactions: [],
+  total: 0,
+};
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-const transactions: Reducer<ITransactionState[]> = (
+const transactions: Reducer<ITransactionStateProps> = (
   state = INITIAL_STATE,
   action,
 ) => {
@@ -17,14 +26,24 @@ const transactions: Reducer<ITransactionState[]> = (
     case 'ADD_TRANSACTION': {
       const { transaction } = action.payload;
 
-      return [...state, transaction];
+      return {
+        ...state,
+        transactions: [...state.transactions, transaction],
+      };
+    }
+    case 'GET_TOTAL': {
+      return {
+        ...state,
+        total: state.transactions.reduce(
+          (total, item) => total + item.value,
+          0,
+        ),
+      };
     }
     default: {
       return state;
     }
   }
-
-  return INITIAL_STATE;
 };
 
 export default transactions;
