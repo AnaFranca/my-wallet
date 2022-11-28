@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import {
   Card,
   CardContent,
@@ -18,12 +19,16 @@ export interface ListCardContentProps {
 interface ListCardProps {
   title: string;
   content: ListCardContentProps[];
+  footerTitle?: string;
+  footerDescription?: string;
   onClick?: () => void;
 }
 
 export function ListCard({
   title,
   content = [],
+  footerTitle,
+  footerDescription,
   onClick,
 }: ListCardProps): ReactElement {
   return (
@@ -51,6 +56,17 @@ export function ListCard({
             <Divider />
           </Box>
         ))}
+        {footerTitle && (
+          <Stack
+            direction="row"
+            justifyContent="space-between"
+            mt={2}
+            role="row"
+          >
+            <Typography>{footerTitle}</Typography>
+            <Typography fontWeight="600">{footerDescription}</Typography>
+          </Stack>
+        )}
       </CardContent>
     </Card>
   );

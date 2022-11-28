@@ -1,13 +1,15 @@
-import { ReactElement, useEffect, useState } from 'react';
+/* eslint-disable @typescript-eslint/no-floating-promises */
+import { ReactElement, useCallback, useEffect, useState } from 'react';
 import { Box, Stack, Tab, Tabs, Typography } from '@mui/material';
 import { CreditCard, Lock, Notifications } from '@mui/icons-material';
 import Head from 'next/head';
-import { Header } from '../components/Header';
+import { Header } from '../components/modules/Header';
 
 import { HomeContainer } from '../components/containers/Home';
 import { WalletContainer } from '../components/containers/Wallet';
 import { ExchangeContainer } from '../components/containers/Exchange';
-import { useStore, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import currencieService from '../services/currency';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -46,6 +48,11 @@ const TabPanel = ({
 };
 
 export default function Home(): ReactElement {
+  const dispatch = useDispatch();
+  // const currencies = useSelector<IState, ICurrencyProps>(
+  //   state => state.currencies,
+  // );
+
   const [value, setValue] = useState<number | null>(null);
 
   const handleChange = (
@@ -55,10 +62,15 @@ export default function Home(): ReactElement {
     setValue(newValue);
   };
 
+  const handleGetData = useCallback(async () => {
+    await currencieService.getAll(dispatch);
+  }, [dispatch]);
+
   // ** Prevent hydration error for react 18
   useEffect(() => {
     setValue(0);
-  }, []);
+    handleGetData();
+  }, [handleGetData]);
 
   return (
     <Stack width="100%">
@@ -72,11 +84,7 @@ export default function Home(): ReactElement {
 
       <Box width="100%" maxWidth="1440px" mt={1} alignSelf="center">
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-          <Tabs
-            value={value}
-            onChange={handleChange}
-            aria-label="basic tabs example"
-          >
+          <Tabs value={value} onChange={handleChange}>
             <Tab label="Home" icon={<CreditCard />} {...a11yProps(0)} />
             <Tab label="Wallets" icon={<Lock />} {...a11yProps(1)} />
             <Tab label="Cambio" icon={<Notifications />} {...a11yProps(2)} />
