@@ -61,7 +61,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
       <a href="#">
         <img src="https://user-images.githubusercontent.com/49946934/190514820-38f39be3-ef06-42c9-ab4f-1e7ac0520ce1.png" width="100px;" alt="Foto da Ana França no Github"/><br>
         <sub>
-          <b>Ana França</b>
+          <b>Ana Luiza França</b>
         </sub>
       </a>
     </td>
