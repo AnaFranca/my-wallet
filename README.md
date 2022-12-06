@@ -1,85 +1,34 @@
-# My-wallet
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## ❔ Sobre o projeto
+## Getting Started
 
-Um projeto academico feito por estudantes do curso de Analise e desenvolvimento de sistemas, pela Uniámerica. A my-wallet é uma carteira digital que armazena dados e faz conversão de seus gastos diarios.
-
-## 🛠 Techs
-
-E-wallet foi construído com as seguintes techs:
-
-- Web
-  - [Next.js](https://nextjs.org/)
-  - [Redux](https://redux.js.org/)
-  - [Jest](https://jestjs.io/pt-BR/)
-- Interface
-  - [Figma](https://www.figma.com/files/recent?fuid=873756903042474429)
-  - [Material-UI](https://v4.mui.com/pt/)
-
-## ⚙ Instalação e Start
-
-  Para instalar e startar a plataforma Proffy, use `npm` ou `yarn`:
-
-### Clonagem
-
-Primeiro, clone o repositório para seu ambiente:
+First, run the development server:
 
 ```bash
-> git clone https://github.com/LaercioMLB/my-wallet.git
-```
-Depois, entre no repositório clonado.
-Logo após, insira os seguintes comandos no seu terminal:
-
-### Web
-
-```bash
-
-# Instala todas as dependências
-> yarn install 
-
-# Starta o servidor web para a plataforma Proffy
-> yarn start 
+npm run dev
+# or
+yarn dev
 ```
 
-Será startado em `http://localhost:3000`
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## 🤝 Colaboradores
+You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-Agradecemos às seguintes pessoas que contribuíram para este projeto:
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
-<table>
-  <tr>
-    <td align="center">
-      <a href="#">
-        <img src="https://user-images.githubusercontent.com/49946934/190514490-1bc75bcc-f694-4dfa-b10f-747a67b891d2.png" width="100px;" alt="Foto do Laercio Bubiak no GitHub"/><br>
-        <sub>
-          <b>Laércio Bubiak</b>
-        </sub>
-      </a>
-    </td>
-    <td align="center">
-      <a href="#">
-        <img src="https://user-images.githubusercontent.com/49946934/190514820-38f39be3-ef06-42c9-ab4f-1e7ac0520ce1.png" width="100px;" alt="Foto da Ana França no Github"/><br>
-        <sub>
-          <b>Ana Luiza França</b>
-        </sub>
-      </a>
-    </td>
-    <td align="center">
-      <a href="#">
-        <img src="https://user-images.githubusercontent.com/49946934/190514615-9911dbc4-8524-4a49-bc17-347fae7f5ca9.png" width="100px;" alt="Foto do Eric Sacardo no GitHub"/><br>
-        <sub>
-          <b>Eric Sacardo</b>
-        </sub>
-      </a>
-    </td>
-    <td align="center">
-      <a href="#">
-        <img src="https://user-images.githubusercontent.com/49946934/190515914-9b9a11dd-93a8-4df7-857e-1d7458738686.png" width="100px;" alt="Foto do Bruno Douglas no GitHub"/><br>
-        <sub>
-          <b>Bruno Douglas</b>
-        </sub>
-      </a>
-    </td>
-  </tr>
-</table>
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

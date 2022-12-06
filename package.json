@@ -5,10 +5,11 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "prod": "next start",
     "lint": "next lint",
     "test": "jest --watchAll",
-    "test-coverage": "jest --coverage --watchAll=false"
+    "dev:up": "docker-compose -f docker-compose.yml -f docker-compose.dev.yml up",
+    "prod:up": "docker-compose -f docker-compose.yml -f docker-compose.prod.yml up"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
