@@ -1,4 +1,4 @@
-import { act, render, screen, waitFor } from '@testing-library/react';
+import { act, render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import rootReducer from '../../store/modules/rootReducer';
 import { HomeContainer } from './Home';
